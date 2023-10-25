@@ -1,14 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { Route } from 'react-router-dom';
 import App from './App.jsx'
 import './index.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import Layout from './components/Layout.jsx'
 import Home from './components/home/home.jsx'
 import About from './components/About/About.jsx'
 import Contact from './components/Contacts/contact.jsx'
 
-const router= createBrowserRouter([
+// one way of routing 
+/*const router= createBrowserRouter([
   {
     path: '/',
     element: <Layout/>,
@@ -28,8 +30,20 @@ element:<Contact/>
       }
     ]
   }
-])
+])*/
+  
 
+// other way to create the router
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<Layout />}>
+      <Route path='' element={<Home />} />
+      <Route path='About' element={<About />} />
+      <Route path='Contact' element={<Contact />} />
+      
+    </Route>
+  )
+)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
