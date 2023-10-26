@@ -8,6 +8,8 @@ import Layout from './components/Layout.jsx'
 import Home from './components/home/home.jsx'
 import About from './components/About/About.jsx'
 import Contact from './components/Contacts/contact.jsx'
+import User from './components/User/User.jsx';
+import Github from './components/Github/Github.jsx';
 
 // one way of routing 
 /*const router= createBrowserRouter([
@@ -40,7 +42,8 @@ const router = createBrowserRouter(
       <Route path='' element={<Home />} />
       <Route path='About' element={<About />} />
       <Route path='Contact' element={<Contact />} />
-      
+      <Route path='user/:userid' element={<User/>}/>
+      <Route path='Github' element={<Github/>}/>
     </Route>
   )
 )
